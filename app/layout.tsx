@@ -12,23 +12,23 @@ const inter = Inter({
 });
 
 const exposure = localFont({
-  src: [
-    {
-      path: "./fonts/exposure-regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./fonts/exposure-italic.woff2",
-      weight: "400",
-      style: "italic",
-    },
-  ],
+  src: "./fonts/exposure-regular.woff2",
+  weight: "400",
+  style: "normal",
   variable: "--font-exposure-var",
   display: "swap",
 });
 
+const exposureItalic = localFont({
+  src: "./fonts/exposure-italic.woff2",
+  weight: "400",
+  style: "normal",
+  variable: "--font-exposure-italic-var",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jeremyportfolio.vercel.app"),
   title: "Jeremy — Backend Engineer",
   description:
     "Backend engineer building APIs and services with TypeScript, Python, and Go. Based in Ecuador.",
@@ -38,6 +38,12 @@ export const metadata: Metadata = {
       "APIs, event-driven backends, and cloud tooling. orderly, entries, signal, Wallbit Workflows.",
     type: "website",
     url: "https://jeremyportfolio.vercel.app",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jeremy — Backend Engineer",
+    description:
+      "APIs, event-driven backends, and cloud tooling. orderly, entries, signal, Wallbit Workflows.",
   },
 };
 
@@ -49,7 +55,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${exposure.variable} h-full`}
+      className={`${inter.variable} ${exposure.variable} ${exposureItalic.variable} h-full`}
     >
       <head>
         <style

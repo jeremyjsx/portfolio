@@ -45,11 +45,13 @@ export const site = {
       "API design",
       "Services & integrations",
       "Event-driven systems",
+      "Distributed systems",
+      "Cloud architecture",
+      "AI systems",
+      "Observability",
       "TypeScript",
       "Python",
       "Go",
-      "PostgreSQL & Redis",
-      "Cloud & tooling",
     ],
   },
 } as const;
@@ -85,10 +87,10 @@ export const nav = [
 /** Home “At a glance” stats */
 export const stats = [
   { value: "3", suffix: "+", label: "Years of experience" },
-  { value: "50", suffix: "+", label: "Public repositories" },
   {
     value: "$340",
     suffix: "M+",
     label: "Annual transaction volume",
   },
+  { value: "OS", suffix: "", label: "Contributor" },
 ] as const;

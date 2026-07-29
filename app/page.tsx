@@ -15,7 +15,8 @@ export default async function Home() {
       <PageColumn variant="hero">
         <h1 className="type-h1 m-0">Hello, I&apos;m {site.name}.</h1>
         <p className="type-role mt-6 mb-0">
-          I&apos;m a <em className="italic-role">{site.role}</em> {" "} working in
+          I&apos;m a <span className="brand-role">{site.role}</span>{" "}
+          working in
           APIs, cloud &amp; backend systems.
         </p>
 

@@ -13,6 +13,7 @@
   --accent: #ffffff;
   --accent-bright: #ffffff;
   --font-exposure: var(--font-exposure-var), Georgia, serif;
+  --font-exposure-italic: var(--font-exposure-italic-var), Georgia, serif;
   --font-inter: var(--font-inter-var), "Inter", system-ui, sans-serif;
   --content-max: 728px;
   --page-max: 1200px;
@@ -326,9 +327,18 @@ body {
   color: var(--foreground);
 }
 
-.italic-role {
+.brand-role {
   font-family: var(--font-exposure);
-  font-style: italic;
+  font-style: normal;
+  font-synthesis: none;
+  font-weight: 400;
+  color: var(--brand-italic);
+}
+
+.italic-role {
+  font-family: var(--font-exposure-italic);
+  font-style: normal;
+  font-synthesis: none;
   font-weight: 400;
   color: var(--brand-italic);
 }
