@@ -18,19 +18,26 @@ const [exposureRegular, exposureItalic, interRegular] = await Promise.all([
   readFile(join(fontsDir, "Inter-Regular.ttf")),
 ]);
 
-// Shared dash grid: phase so each rail crossing is the center of a dash → clean +.
+// Shared dash grid: phase so crossings form +, segments clip to canvas edges.
+// Edge stubs end up 3px vs 2px (5-on/5-off can't mirror on a period-10 grid);
+// that's fine — keeps the + joins and full-bleed rails.
 const RAIL_INSET = 60;
 const DASH = 5;
 const PERIOD = 10;
 const PHASE =
   (((RAIL_INSET - Math.floor(DASH / 2)) % PERIOD) + PERIOD) % PERIOD;
 
-function dashStarts(span: number): number[] {
-  const starts: number[] = [];
-  for (let pos = PHASE; pos < span; pos += PERIOD) {
-    if (pos + DASH > 0) starts.push(pos);
+function dashSegments(span: number): { start: number; length: number }[] {
+  const segments: { start: number; length: number }[] = [];
+  let pos = PHASE;
+  while (pos > 0) pos -= PERIOD;
+
+  for (; pos < span; pos += PERIOD) {
+    const start = Math.max(0, pos);
+    const end = Math.min(span, pos + DASH);
+    if (end > start) segments.push({ start, length: end - start });
   }
-  return starts;
+  return segments;
 }
 
 /** Dashed rail — Satori has weak border-style support, so we fake dashes. */
@@ -43,7 +50,7 @@ function DashedRail({
 }) {
   const isVertical = orientation === "vertical";
   const span = isVertical ? size.height : size.width;
-  const starts = dashStarts(span);
+  const segments = dashSegments(span);
 
   const railLeft =
     edge === "left"
@@ -69,15 +76,15 @@ function DashedRail({
         display: "flex",
       }}
     >
-      {starts.map((pos) => (
+      {segments.map(({ start, length }) => (
         <div
-          key={`dash-${edge}-${pos}`}
+          key={`dash-${edge}-${start}`}
           style={{
             position: "absolute",
-            left: isVertical ? 0 : pos,
-            top: isVertical ? pos : 0,
-            width: isVertical ? 1 : DASH,
-            height: isVertical ? DASH : 1,
+            left: isVertical ? 0 : start,
+            top: isVertical ? start : 0,
+            width: isVertical ? 1 : length,
+            height: isVertical ? length : 1,
             background: "#2a2a2a",
             display: "flex",
           }}
