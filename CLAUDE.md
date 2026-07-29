@@ -1,1 +1,62 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 @AGENTS.md
+
+## Commands
+
+```bash
+npm run dev      # start dev server (localhost:3000)
+npm run build    # production build
+npm run lint     # ESLint
+npm start        # serve production build
+```
+
+No test suite is configured.
+
+## Stack
+
+- **Next.js 16.2.6** — App Router only; no Pages Router. This is a newer version than most training data — read `node_modules/next/dist/docs/` before using unfamiliar APIs.
+- **React 19.2.4** with Server Components by default.
+- **Tailwind CSS v4** — configured via `@tailwindcss/postcss`. The v4 config API differs from v3 (no `tailwind.config.js`; tokens are declared in `globals.css` under `@theme inline`).
+- **TypeScript** throughout.
+
+## Architecture
+
+### Content layer (`lib/`)
+
+All site content lives in plain TypeScript files — no CMS, no database, no async fetching:
+
+- `lib/site.ts` — personal info, nav, social links, stats, footer focus areas
+- `lib/projects.ts` — `projects` with `slug`; `homeProjects` preview on `/#work`
+- `lib/project-cases.ts` — markdown case study body per project slug
+- `lib/experience.ts` — work history
+- `lib/entries.ts` — fetches published posts + markdown from the [entries](https://github.com/jeremyjsx/entries) API (`ENTRIES_API_URL`); set `ENTRIES_USE_MOCK=true` for `lib/writing-mock.ts` sample posts
+- `lib/writing.ts` — maps entries posts to portfolio writing cards (`getWritingEntries`)
+- `lib/about.ts` — about page copy and sections
+
+To add or edit content, edit these files directly.
+
+### Layout primitives
+
+`SiteShell` (`app/components/site-shell.tsx`): `.page-rail-guides` + fixed `SiteNavbar` + full-width `page-main` + `SiteFooter`. `.section-rule` is `width: 100%` of `page-main` (no `100vw`, avoids horizontal scroll). Mounted once in `app/layout.tsx`.
+
+`PageColumn` (`app/components/page-column.tsx`) centers content at `--content-max: 728px` with horizontal padding. Variants: `hero`, `section`, `section-tight`. Pass `ruleTop` for a full-width dashed rule above the block (rendered inside full-width `main`).
+
+### Design system
+
+The design system lives entirely in `app/globals.css`:
+
+- **CSS custom properties** (`--background`, `--foreground`, `--muted`, `--border`, `--surface`, etc.) — dark-only theme.
+- **Semantic utility classes** (`type-h1`, `type-body`, `type-section-heading`, `btn-primary`, `link-arrow`, `page-column`, `section-rule`, etc.) — prefer these over ad-hoc Tailwind utilities for anything covered by the system.
+- **Fonts**: `Exposure` (display/serif, loaded from Framer CDN via `@font-face`) and `Inter` (body, via `next/font/google`). Use `font-display` class or `var(--font-exposure)` for display text; `font-sans` / `var(--font-inter)` for body.
+- Tailwind v4 tokens are bridged into the theme via the `@theme inline` block in `globals.css`.
+
+### Pages
+
+- `/` — `app/page.tsx`: single-page scroll (hero, at-a-glance, experience, projects, writing).
+- `/about` — `app/about/page.tsx`: hero, API flow diagram, sections from `lib/about.ts`.
+- `/work` — project grid; `/work/[slug]` — case study from `lib/project-cases.ts`
+- `/writing` — `app/writing/page.tsx`: list from entries API
+- `/writing/[slug]` — `app/writing/[slug]/page.tsx`: single post, markdown via `GET /posts/{slug}/content`
