@@ -3,16 +3,16 @@ import Link from "next/link";
 import { PageColumn } from "@/app/components/page-column";
 import { WritingEntry } from "@/app/components/writing-entry";
 import { site } from "@/lib/site/site";
-import { getWritingEntries } from "@/lib/writing";
+import { getWritingEntries } from "@/lib/writing/posts";
 
 export const metadata: Metadata = {
   title: `Writing — ${site.fullName}`,
   description:
-    "Notes on APIs, databases, and backend systems — idempotency, Postgres, Go workers, and more.",
+    "Notes on shipping backend systems, certifications, APIs, and the operational side of building with Claude.",
 };
 
-export default async function WritingPage() {
-  const writingEntries = await getWritingEntries();
+export default function WritingPage() {
+  const writingEntries = getWritingEntries();
 
   return (
     <>
@@ -38,16 +38,7 @@ export default async function WritingPage() {
           </div>
         ) : (
           <p className="type-body m-0 max-w-[390px]">
-            No published posts yet. Publish markdown in{" "}
-            <a
-              href="https://github.com/jeremyjsx/entries"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground no-underline transition-opacity hover:opacity-70"
-            >
-              entries
-            </a>{" "}
-            and they will show up here.
+            No published posts yet.
           </p>
         )}
       </PageColumn>

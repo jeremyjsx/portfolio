@@ -6,10 +6,10 @@ import { SectionHeading } from "@/app/components/section-heading";
 import { WritingEntry } from "@/app/components/writing-entry";
 import { homeProjects } from "@/lib/work/projects";
 import { site, stats } from "@/lib/site/site";
-import { getWritingEntries, writingHomePreviewCount } from "@/lib/writing";
+import { getWritingEntries, writingHomePreviewCount } from "@/lib/writing/posts";
 
-export default async function Home() {
-  const writingEntries = await getWritingEntries();
+export default function Home() {
+  const writingEntries = getWritingEntries();
   return (
     <>
       <PageColumn variant="hero">

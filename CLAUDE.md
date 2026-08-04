@@ -32,12 +32,11 @@ All site content lives in-repo — no CMS. Domains are folders; imports are expl
 - `lib/work/projects.ts` — `projects` with `slug`; `homeProjects` preview on `/#work`
 - `lib/work/cases.ts` — markdown case study body per project slug
 - `lib/experience/experience.ts` — work history
-- `lib/entries.ts` — fetches published posts + markdown from the [entries](https://github.com/jeremyjsx/entries) API (`ENTRIES_API_URL`); set `ENTRIES_USE_MOCK=true` for `lib/writing-mock.ts` sample posts
-- `lib/writing.ts` — maps entries posts to portfolio writing cards (`getWritingEntries`)
+- `content/writing/*.md` — blog posts; `lib/writing/posts.ts` loads them
 - `lib/about/about.ts` — about page copy and sections
 - `lib/shared/tech-icons.ts` — tech icon path helpers
 
-To add or edit content, edit these files directly.
+To add or edit content, edit these files directly. Draft posts use `status: draft` and stay out of public lists.
 
 ### Layout primitives
 
@@ -59,5 +58,5 @@ The design system lives entirely in `app/globals.css`:
 - `/` — `app/page.tsx`: single-page scroll (hero, at-a-glance, experience, projects, writing).
 - `/about` — `app/about/page.tsx`: hero, API flow diagram, sections from `lib/about/about.ts`.
 - `/work` — project grid; `/work/[slug]` — case study from `lib/work/cases.ts`
-- `/writing` — `app/writing/page.tsx`: list from entries API
-- `/writing/[slug]` — `app/writing/[slug]/page.tsx`: single post, markdown via `GET /posts/{slug}/content`
+- `/writing` — `app/writing/page.tsx`: published posts from `content/writing/`
+- `/writing/[slug]` — `app/writing/[slug]/page.tsx`: single post markdown body

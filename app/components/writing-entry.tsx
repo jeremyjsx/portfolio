@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { WritingEntry } from "@/lib/writing";
+import type { WritingEntry } from "@/lib/writing/posts";
 
 export function WritingEntry({ entry }: { entry: WritingEntry }) {
   return (
@@ -10,7 +10,7 @@ export function WritingEntry({ entry }: { entry: WritingEntry }) {
           {entry.title}
         </h3>
         {entry.excerpt ? (
-          <p className="type-body m-0 max-w-[390px]">{entry.excerpt}</p>
+          <p className="type-body-sm m-0">{entry.excerpt}</p>
         ) : null}
       </Link>
     </article>
