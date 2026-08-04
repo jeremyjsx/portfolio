@@ -24,17 +24,18 @@ No test suite is configured.
 
 ## Architecture
 
-### Content layer (`lib/`)
+### Content layer (`lib/` by domain)
 
-All site content lives in plain TypeScript files — no CMS, no database, no async fetching:
+All site content lives in-repo — no CMS. Domains are folders; imports are explicit (no barrel `index.ts`):
 
-- `lib/site.ts` — personal info, nav, social links, stats, footer focus areas
-- `lib/projects.ts` — `projects` with `slug`; `homeProjects` preview on `/#work`
-- `lib/project-cases.ts` — markdown case study body per project slug
-- `lib/experience.ts` — work history
+- `lib/site/site.ts` — personal info, nav, social links, stats, footer focus areas
+- `lib/work/projects.ts` — `projects` with `slug`; `homeProjects` preview on `/#work`
+- `lib/work/cases.ts` — markdown case study body per project slug
+- `lib/experience/experience.ts` — work history
 - `lib/entries.ts` — fetches published posts + markdown from the [entries](https://github.com/jeremyjsx/entries) API (`ENTRIES_API_URL`); set `ENTRIES_USE_MOCK=true` for `lib/writing-mock.ts` sample posts
 - `lib/writing.ts` — maps entries posts to portfolio writing cards (`getWritingEntries`)
-- `lib/about.ts` — about page copy and sections
+- `lib/about/about.ts` — about page copy and sections
+- `lib/shared/tech-icons.ts` — tech icon path helpers
 
 To add or edit content, edit these files directly.
 
@@ -56,7 +57,7 @@ The design system lives entirely in `app/globals.css`:
 ### Pages
 
 - `/` — `app/page.tsx`: single-page scroll (hero, at-a-glance, experience, projects, writing).
-- `/about` — `app/about/page.tsx`: hero, API flow diagram, sections from `lib/about.ts`.
-- `/work` — project grid; `/work/[slug]` — case study from `lib/project-cases.ts`
+- `/about` — `app/about/page.tsx`: hero, API flow diagram, sections from `lib/about/about.ts`.
+- `/work` — project grid; `/work/[slug]` — case study from `lib/work/cases.ts`
 - `/writing` — `app/writing/page.tsx`: list from entries API
 - `/writing/[slug]` — `app/writing/[slug]/page.tsx`: single post, markdown via `GET /posts/{slug}/content`

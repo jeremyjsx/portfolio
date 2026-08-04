@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { PageColumn } from "@/app/components/page-column";
 import { WritingMarkdown } from "@/app/components/writing-markdown";
-import { getProjectCaseStudy } from "@/lib/project-cases";
-import { getProjectBySlug, projects } from "@/lib/projects";
-import { site } from "@/lib/site";
+import { getProjectCaseStudy } from "@/lib/work/cases";
+import { getProjectBySlug, projects } from "@/lib/work/projects";
+import { site } from "@/lib/site/site";
 
 type ProjectCasePageProps = {
   params: Promise<{ slug: string }>;
@@ -93,8 +94,30 @@ async function ProjectCaseContent({
         </div>
       </PageColumn>
 
-      <PageColumn variant="section" ruleTop>
-        <WritingMarkdown content={caseStudy} />
+      {project.banner ? (
+        <PageColumn variant="section-tight" ruleTop>
+          <div className="project-case__banner">
+            <Image
+              src={project.banner}
+              alt={`${project.name} banner`}
+              width={1200}
+              height={500}
+              className="project-case__banner-img"
+              priority
+              loading="eager"
+            />
+          </div>
+        </PageColumn>
+      ) : null}
+
+      <PageColumn variant="section" ruleTop={!project.banner}>
+        <Suspense
+          fallback={
+            <div className="h-40 animate-pulse rounded bg-surface" aria-hidden />
+          }
+        >
+          <WritingMarkdown content={caseStudy} />
+        </Suspense>
       </PageColumn>
     </>
   );

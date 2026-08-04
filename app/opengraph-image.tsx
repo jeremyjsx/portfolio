@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
-import { site } from "@/lib/site";
+import { site } from "@/lib/site/site";
 
 export const alt = `${site.fullName} — ${site.role}`;
 export const size = {

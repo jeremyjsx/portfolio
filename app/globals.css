@@ -352,6 +352,37 @@ body {
   color: var(--muted);
 }
 
+.project-card__media {
+  position: relative;
+}
+
+.project-card__banner {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.project-case__banner {
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  line-height: 0;
+}
+
+.project-case__banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-inline: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
 /* Markdown body (writing posts + project case studies) */
 .writing-prose {
   max-width: 640px;

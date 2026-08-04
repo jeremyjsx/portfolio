@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { site } from "@/lib/site";
+import { site } from "@/lib/site/site";
 
 function BadgeContent({ badge }: { badge: (typeof site.heroBadges)[number] }) {
   return (

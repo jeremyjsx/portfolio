@@ -1,16 +1,35 @@
+import Image from "next/image";
 import Link from "next/link";
-import type { Project } from "@/lib/projects";
+import type { Project } from "@/lib/work/projects";
 
-export function ProjectCard({ project }: { project: Project }) {
+type ProjectCardProps = {
+  project: Project;
+  /** Eager-load banner when this card is likely LCP (above the fold). */
+  priority?: boolean;
+};
+
+export function ProjectCard({ project, priority = false }: ProjectCardProps) {
   return (
     <Link
       href={`/work/${project.slug}`}
       className="group block text-foreground no-underline"
     >
-      <div className="mb-4 flex aspect-[4/3] items-end overflow-hidden rounded-sm bg-surface p-5 transition-colors group-hover:bg-surface-hover">
-        <span className="text-4xl" aria-hidden>
-          {project.emoji}
-        </span>
+      <div className="project-card__media mb-4 aspect-[12/5] overflow-hidden rounded-sm bg-surface transition-colors group-hover:bg-surface-hover">
+        {project.banner ? (
+          <Image
+            src={project.banner}
+            alt=""
+            width={1200}
+            height={500}
+            className="project-card__banner"
+            priority={priority}
+            loading={priority ? "eager" : "lazy"}
+          />
+        ) : (
+          <span className="flex h-full items-end p-5 text-4xl" aria-hidden>
+            {project.emoji}
+          </span>
+        )}
       </div>
       <h3 className="mb-1 font-display text-base font-normal tracking-tight group-hover:opacity-70">
         {project.name}

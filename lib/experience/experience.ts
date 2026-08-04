@@ -52,7 +52,7 @@ export const experienceEntries: ExperienceEntry[] = [
   },
   {
     id: "personal",
-    emoji: "✌️",
+    image: "/squared-logo.png",
     title: "Personal projects & open source",
     company: "github.com/jeremyjsx",
     period: "September 2019 — Present",

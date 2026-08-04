@@ -1,4 +1,4 @@
-import { getTechIconPath } from "@/lib/tech-icons";
+import { getTechIconPath } from "@/lib/shared/tech-icons";
 
 type ExperienceTechChipProps = {
   name: string;

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Suspense, useEffect, useRef, useState } from "react";
-import { nav } from "@/lib/site";
+import { nav } from "@/lib/site/site";
 
 /** Pixels of scroll direction change before toggling (lower = snappier). */
 const SCROLL_DELTA = 3;
