@@ -33,6 +33,7 @@ All site content lives in-repo — no CMS. Domains are folders; imports are expl
 - `lib/work/cases.ts` — markdown case study body per project slug
 - `lib/experience/experience.ts` — work history
 - `content/writing/*.md` — blog posts; `lib/writing/posts.ts` loads them
+- `lib/writing/claps.ts` + `claps-constants.ts` — post claps (Upstash Redis via `UPSTASH_REDIS_*`)
 - `lib/about/about.ts` — about page copy and sections
 - `lib/shared/tech-icons.ts` — tech icon path helpers
 

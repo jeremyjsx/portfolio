@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { ClapButton } from "@/app/components/clap-button";
 import { PageColumn } from "@/app/components/page-column";
 import { WritingMarkdown } from "@/app/components/writing-markdown";
 import {
@@ -119,6 +120,7 @@ async function WritingPostContent({
         <Suspense fallback={<WritingProseSkeleton />}>
           <WritingMarkdown content={post.content} />
         </Suspense>
+        <ClapButton slug={post.slug} />
       </PageColumn>
     </>
   );
