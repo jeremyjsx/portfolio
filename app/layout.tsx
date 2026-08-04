@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import { SiteShell } from "@/app/components/site-shell";
-import { heroPaddingTop, heroSubpagePaddingTop } from "@/lib/site";
+import { heroPaddingTop, heroSubpagePaddingTop } from "@/lib/site/site";
 import "./globals.css";
 
 const inter = Inter({

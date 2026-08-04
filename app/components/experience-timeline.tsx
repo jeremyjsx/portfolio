@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useState } from "react";
 import { ExperienceTechChip } from "@/app/components/experience-tech-chip";
-import type { ExperienceEntry } from "@/lib/experience";
-import { experienceEntries } from "@/lib/experience";
+import type { ExperienceEntry } from "@/lib/experience/experience";
+import { experienceEntries } from "@/lib/experience/experience";
 
 function ChevronIcon({ open }: { open: boolean }) {
   return (

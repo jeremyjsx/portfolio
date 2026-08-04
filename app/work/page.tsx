@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageColumn } from "@/app/components/page-column";
 import { ProjectCard } from "@/app/components/project-card";
-import { projects } from "@/lib/projects";
-import { site } from "@/lib/site";
+import { projects } from "@/lib/work/projects";
+import { site } from "@/lib/site/site";
 
 export const metadata: Metadata = {
   title: `Work — ${site.fullName}`,
@@ -29,9 +29,9 @@ export default function WorkPage() {
 
       <PageColumn variant="section" ruleTop>
         <ul className="m-0 grid list-none gap-8 p-0 sm:grid-cols-2">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <li key={project.slug}>
-              <ProjectCard project={project} />
+              <ProjectCard project={project} priority={index === 0} />
             </li>
           ))}
         </ul>

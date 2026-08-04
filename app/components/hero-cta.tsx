@@ -1,5 +1,5 @@
 import { HeroBadges } from "@/app/components/hero-badges";
-import { site } from "@/lib/site";
+import { site } from "@/lib/site/site";
 
 export function HeroCta() {
   return (

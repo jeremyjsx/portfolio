@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef, CSSProperties, ReactNode } from "react";
-import { heroPaddingTop, heroSubpagePaddingTop } from "@/lib/site";
+import { heroPaddingTop, heroSubpagePaddingTop } from "@/lib/site/site";
 
 type PageColumnVariant = "hero" | "section" | "section-tight";
 

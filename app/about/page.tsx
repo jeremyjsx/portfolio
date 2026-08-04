@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ApiFlowDiagram } from "@/app/components/api-flow-diagram";
 import { PageColumn } from "@/app/components/page-column";
-import { aboutPage } from "@/lib/about";
-import { site } from "@/lib/site";
+import { aboutPage } from "@/lib/about/about";
+import { site } from "@/lib/site/site";
 
 export const metadata: Metadata = {
   title: `About — ${site.fullName}`,

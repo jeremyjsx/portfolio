@@ -1,4 +1,4 @@
-import { apiFlowMethods, apiFlowTags } from "@/lib/about";
+import { apiFlowMethods, apiFlowTags } from "@/lib/about/about";
 
 function MethodIcon() {
   return (

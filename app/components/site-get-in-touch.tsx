@@ -1,6 +1,6 @@
 import { SocialIcon } from "@/app/components/icons/social-icon";
 import { PageColumn } from "@/app/components/page-column";
-import { site, socialLinks } from "@/lib/site";
+import { site, socialLinks } from "@/lib/site/site";
 
 export function SiteGetInTouch() {
   return (

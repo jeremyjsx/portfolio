@@ -4,8 +4,8 @@ import { PageColumn } from "@/app/components/page-column";
 import { ProjectCard } from "@/app/components/project-card";
 import { SectionHeading } from "@/app/components/section-heading";
 import { WritingEntry } from "@/app/components/writing-entry";
-import { homeProjects } from "@/lib/projects";
-import { site, stats } from "@/lib/site";
+import { homeProjects } from "@/lib/work/projects";
+import { site, stats } from "@/lib/site/site";
 import { getWritingEntries, writingHomePreviewCount } from "@/lib/writing";
 
 export default async function Home() {
@@ -52,9 +52,9 @@ export default async function Home() {
           action={{ label: "View all", href: "/work", external: false }}
         />
         <ul className="m-0 grid list-none gap-8 p-0 sm:grid-cols-2 lg:grid-cols-3">
-          {homeProjects.map((project) => (
+          {homeProjects.map((project, index) => (
             <li key={project.slug}>
-              <ProjectCard project={project} />
+              <ProjectCard project={project} priority={index === 0} />
             </li>
           ))}
         </ul>

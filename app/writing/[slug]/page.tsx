@@ -10,7 +10,7 @@ import {
   getPostContent,
   listPublishedPosts,
 } from "@/lib/entries";
-import { site } from "@/lib/site";
+import { site } from "@/lib/site/site";
 
 type WritingPostPageProps = {
   params: Promise<{ slug: string }>;

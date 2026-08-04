@@ -1,6 +1,6 @@
 import { FocusMarquee } from "@/app/components/focus-marquee";
 import { PageColumn } from "@/app/components/page-column";
-import { contactLinks, site } from "@/lib/site";
+import { contactLinks, site } from "@/lib/site/site";
 
 export function SiteFooter() {
   return (

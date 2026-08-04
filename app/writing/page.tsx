@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageColumn } from "@/app/components/page-column";
 import { WritingEntry } from "@/app/components/writing-entry";
-import { site } from "@/lib/site";
+import { site } from "@/lib/site/site";
 import { getWritingEntries } from "@/lib/writing";
 
 export const metadata: Metadata = {
