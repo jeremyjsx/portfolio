@@ -58,7 +58,7 @@ export const projects: Project[] = [
 
 const homeProjectSlugs = ["orderly", "signal", "workflows"] as const;
 
-/** Shown on the home page; full list lives at `/work`. */
+/** Shown on the home page; full list lives at `/projects`. */
 export const homeProjects = homeProjectSlugs
   .map((slug) => projects.find((p) => p.slug === slug))
   .filter((p): p is Project => p != null);

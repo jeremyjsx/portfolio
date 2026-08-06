@@ -64,7 +64,7 @@ export const contactLinks = [
 
 export const footerNav = [
   { label: "Experience", href: "/#experience" },
-  { label: "Work", href: "/work" },
+  { label: "Projects", href: "/projects" },
   { label: "Writing", href: "/writing" },
   { label: "About", href: "/about" },
   { label: "Resume", href: "/Jeremy Mosquera - Curriculum.pdf", external: true },
@@ -79,7 +79,7 @@ export const socialLinks = [
 /** Top nav links */
 export const nav = [
   { label: "Home", href: "/" },
-  { label: "Work", href: "/work" },
+  { label: "Projects", href: "/projects" },
   { label: "Writing", href: "/writing" },
   { label: "About", href: "/about" },
 ] as const;

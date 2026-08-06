@@ -5,8 +5,8 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { PageColumn } from "@/app/components/page-column";
 import { WritingMarkdown } from "@/app/components/writing-markdown";
-import { getProjectCaseStudy } from "@/lib/work/cases";
-import { getProjectBySlug, projects } from "@/lib/work/projects";
+import { getProjectCaseStudy } from "@/lib/projects/cases";
+import { getProjectBySlug, projects } from "@/lib/projects/projects";
 import { site } from "@/lib/site/site";
 
 type ProjectCasePageProps = {
@@ -25,7 +25,7 @@ export async function generateMetadata({
   const project = getProjectBySlug(slug);
 
   if (!project) {
-    return { title: `Work — ${site.fullName}` };
+    return { title: `Projects — ${site.fullName}` };
   }
 
   return {
@@ -79,8 +79,8 @@ async function ProjectCaseContent({
 
         <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2">
           <p className="type-body-sm m-0">
-            <Link href="/work" className="link-arrow text-muted">
-              ← Back to work
+            <Link href="/projects" className="link-arrow text-muted">
+              ← Back to projects
             </Link>
           </p>
           <a

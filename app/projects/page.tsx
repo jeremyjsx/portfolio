@@ -2,20 +2,20 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageColumn } from "@/app/components/page-column";
 import { ProjectCard } from "@/app/components/project-card";
-import { projects } from "@/lib/work/projects";
+import { projects } from "@/lib/projects/projects";
 import { site } from "@/lib/site/site";
 
 export const metadata: Metadata = {
-  title: `Work — ${site.fullName}`,
+  title: `Projects — ${site.fullName}`,
   description:
     "Backend systems, pipelines, and open source — e-commerce APIs, RSS intelligence, and workflow tooling.",
 };
 
-export default function WorkPage() {
+export default function ProjectsPage() {
   return (
     <>
       <PageColumn variant="hero" className="page-column-hero--subpage">
-        <h1 className="type-h1 m-0">Work</h1>
+        <h1 className="type-h1 m-0">Projects</h1>
         <p className="type-body mt-6 mb-0 max-w-[390px]">
           Selected projects — production backends, side experiments, and open
           source tooling.

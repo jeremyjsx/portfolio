@@ -4,7 +4,7 @@ import { PageColumn } from "@/app/components/page-column";
 import { ProjectCard } from "@/app/components/project-card";
 import { SectionHeading } from "@/app/components/section-heading";
 import { WritingEntry } from "@/app/components/writing-entry";
-import { homeProjects } from "@/lib/work/projects";
+import { homeProjects } from "@/lib/projects/projects";
 import { site, stats } from "@/lib/site/site";
 import { getWritingEntries, writingHomePreviewCount } from "@/lib/writing/posts";
 
@@ -49,7 +49,7 @@ export default function Home() {
       <PageColumn variant="section" className="scroll-mt-20" id="work">
         <SectionHeading
           title="Projects"
-          action={{ label: "View all", href: "/work", external: false }}
+          action={{ label: "View all", href: "/projects", external: false }}
         />
         <ul className="m-0 grid list-none gap-8 p-0 sm:grid-cols-2 lg:grid-cols-3">
           {homeProjects.map((project, index) => (

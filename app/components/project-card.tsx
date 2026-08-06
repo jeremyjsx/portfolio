@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Project } from "@/lib/work/projects";
+import type { Project } from "@/lib/projects/projects";
 
 type ProjectCardProps = {
   project: Project;
@@ -11,7 +11,7 @@ type ProjectCardProps = {
 export function ProjectCard({ project, priority = false }: ProjectCardProps) {
   return (
     <Link
-      href={`/work/${project.slug}`}
+      href={`/projects/${project.slug}`}
       className="group block text-foreground no-underline"
     >
       <div className="project-card__media mb-4 aspect-[12/5] overflow-hidden rounded-sm bg-surface transition-colors group-hover:bg-surface-hover">

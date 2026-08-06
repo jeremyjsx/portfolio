@@ -29,15 +29,28 @@ No test suite is configured.
 All site content lives in-repo — no CMS. Domains are folders; imports are explicit (no barrel `index.ts`):
 
 - `lib/site/site.ts` — personal info, nav, social links, stats, footer focus areas
-- `lib/work/projects.ts` — `projects` with `slug`; `homeProjects` preview on `/#work`
-- `lib/work/cases.ts` — markdown case study body per project slug
-- `lib/experience/experience.ts` — work history
+- `lib/projects/projects.ts` — project catalog (`slug`, cards, `homeProjects`)
+- `content/projects/*.md` — case study bodies; `lib/projects/cases.ts` loads them
+- `lib/experience/experience.ts` — employment history (e.g. TRD)
 - `content/writing/*.md` — blog posts; `lib/writing/posts.ts` loads them
 - `lib/writing/claps.ts` + `claps-constants.ts` — post claps (Upstash Redis via `UPSTASH_REDIS_*`)
+- `lib/writing/visitor.ts` — shared anonymous `visitor_id` cookie (claps + views)
+- `lib/writing/views.ts` — unique visitor/day view totals (stored, not shown in UI yet)
 - `lib/about/about.ts` — about page copy and sections
 - `lib/shared/tech-icons.ts` — tech icon path helpers
 
 To add or edit content, edit these files directly. Draft posts use `status: draft` and stay out of public lists.
+
+Writing callouts (GitHub-style blockquotes), colored like Railly's notes:
+
+```md
+> [!NOTE] Optional title
+> Body text
+
+> [!TIP] ...
+> [!WARNING] ...
+> [!IMPORTANT] ...
+```
 
 ### Layout primitives
 
@@ -58,6 +71,6 @@ The design system lives entirely in `app/globals.css`:
 
 - `/` — `app/page.tsx`: single-page scroll (hero, at-a-glance, experience, projects, writing).
 - `/about` — `app/about/page.tsx`: hero, API flow diagram, sections from `lib/about/about.ts`.
-- `/work` — project grid; `/work/[slug]` — case study from `lib/work/cases.ts`
+- `/projects` — project grid; `/projects/[slug]` — case study from `content/projects/` (`/work` redirects here)
 - `/writing` — `app/writing/page.tsx`: published posts from `content/writing/`
 - `/writing/[slug]` — `app/writing/[slug]/page.tsx`: single post markdown body
