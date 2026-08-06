@@ -7,11 +7,11 @@ import {
 import { getPublishedWritingPost } from "@/lib/writing/posts";
 
 export {
-  CLAP_COOKIE,
   CLAP_MAX_AMOUNT_PER_REQUEST,
   CLAP_MAX_PER_VISITOR,
   type ClapCounts,
 } from "@/lib/writing/claps-constants";
+export { VISITOR_COOKIE } from "@/lib/writing/visitor";
 
 function hasRedisEnv(): boolean {
   return Boolean(
