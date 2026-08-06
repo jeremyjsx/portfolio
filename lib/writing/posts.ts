@@ -10,6 +10,8 @@ export type WritingPost = {
   status: WritingPostStatus;
   excerpt: string;
   content: string;
+  /** Estimated reading time in whole minutes (minimum 1). */
+  readingMinutes: number;
 };
 
 export type WritingEntry = {
@@ -18,6 +20,7 @@ export type WritingEntry = {
   title: string;
   excerpt: string;
   href: string;
+  readingMinutes: number;
 };
 
 /** How many posts to show in the home Writing section */
@@ -74,6 +77,28 @@ function parseFrontmatter(raw: string): {
   };
 }
 
+const WORDS_PER_MINUTE = 220;
+
+/** Strip light markdown noise and estimate whole minutes to read. */
+export function estimateReadingMinutes(content: string): number {
+  const plain = content
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/`[^`]*`/g, " ")
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
+    .replace(/\[[^\]]*\]\([^)]*\)/g, " ")
+    .replace(/^>\s*\[!(?:NOTE|TIP|WARNING|IMPORTANT)\][^\n]*/gim, " ")
+    .replace(/[#>*_~\-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  const words = plain ? plain.split(" ").length : 0;
+  return Math.max(1, Math.round(words / WORDS_PER_MINUTE));
+}
+
+export function formatReadingTime(minutes: number): string {
+  return minutes === 1 ? "1 min read" : `${minutes} min read`;
+}
+
 function readWritingPostFile(filename: string): WritingPost {
   const slug = filename.replace(/\.md$/, "");
   const filePath = path.join(writingDirectory, filename);
@@ -87,6 +112,7 @@ function readWritingPostFile(filename: string): WritingPost {
     status: data.status,
     excerpt: data.excerpt,
     content,
+    readingMinutes: estimateReadingMinutes(content),
   };
 }
 
@@ -145,6 +171,7 @@ function postToWritingEntry(post: WritingPost): WritingEntry {
     title: post.title,
     excerpt: post.excerpt,
     href: `/writing/${post.slug}`,
+    readingMinutes: post.readingMinutes,
   };
 }
 

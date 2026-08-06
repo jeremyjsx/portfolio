@@ -8,6 +8,7 @@ import { WritingMarkdown } from "@/app/components/writing-markdown";
 import { WritingViewTracker } from "@/app/components/writing-view-tracker";
 import {
   formatPostDate,
+  formatReadingTime,
   getPublishedWritingPost,
   listPublishedWritingPosts,
 } from "@/lib/writing/posts";
@@ -107,9 +108,11 @@ async function WritingPostContent({
     <>
       <WritingViewTracker slug={post.slug} />
       <PageColumn variant="hero" className="page-column-hero--subpage">
-        <time className="type-body-sm mb-4 block">
-          {formatPostDate(post.date)}
-        </time>
+        <p className="type-body-sm mb-4 flex flex-wrap items-center gap-x-2 gap-y-1">
+          <time dateTime={post.date}>{formatPostDate(post.date)}</time>
+          <span aria-hidden>·</span>
+          <span>{formatReadingTime(post.readingMinutes)}</span>
+        </p>
         <h1 className="type-h1 mb-0 max-w-[640px]">{post.title}</h1>
         <p className="type-body-sm mt-6 mb-0">
           <Link href="/writing" className="link-arrow text-muted">
