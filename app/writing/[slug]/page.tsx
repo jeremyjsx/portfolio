@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import { ClapButton } from "@/app/components/clap-button";
 import { PageColumn } from "@/app/components/page-column";
 import { WritingMarkdown } from "@/app/components/writing-markdown";
+import { WritingViewTracker } from "@/app/components/writing-view-tracker";
 import {
   formatPostDate,
   getPublishedWritingPost,
@@ -104,6 +105,7 @@ async function WritingPostContent({
 
   return (
     <>
+      <WritingViewTracker slug={post.slug} />
       <PageColumn variant="hero" className="page-column-hero--subpage">
         <time className="type-body-sm mb-4 block">
           {formatPostDate(post.date)}
