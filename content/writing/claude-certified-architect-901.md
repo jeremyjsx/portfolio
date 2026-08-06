@@ -9,7 +9,9 @@ I passed Anthropic's Claude Certified Architect Foundations exam on June 20, 202
 
 Score: **901 / 1000**. Passing is 720. So yeah, I'm happy about it.
 
-This is not a full study guide. It's what the day felt like, plus a few things I'd tell a friend who wants to sit the same exam.
+> [!NOTE] Not a study guide
+>
+> This is what the day felt like, plus a few things I'd tell a friend who wants to sit the same exam. If you're prepping, I recommend starting with the [Claude Certification Guide](https://claudecertificationguide.com/learn).
 
 ## The short version of the day
 
@@ -26,8 +28,6 @@ When the score landed at 901, it felt less like "I studied hard" and more like "
 2. **Read the official exam guide like it matters.** Domain weights are not decoration. Agentic architecture is a big chunk. Context and reliability is smaller but sneaky. Don't ignore the quiet domains.
 
 3. **Practice deciding, not recalling.** Flashcards help a little. Thinking through "what would I build?" helps more. For every practice miss, write down *why* the right answer wins.
-
-Shout out to [Claude Certification Guide](https://claudecertificationguide.com/learn). Their domain breakdown and study material helped me map what to practice instead of guessing. If you're prepping, start there.
 
 ## Who this is actually for
 
@@ -46,6 +46,8 @@ If you're writing code against the API every day, look at Developer. If you're s
 
 You don't need a three-month ritual. You need hands-on reps and a clear map of the domains.
 
-Build a small agent. Wire a tool. Break context on purpose and fix it. Then book the exam while that stuff is still fresh.
+Build a small agent this week. Wire one tool. Break context on purpose and sit with the mess until you can fix it. Do that a few times and the scenarios stop feeling theoretical.
 
-And when you get your score, tell someone. That's half the fun.
+Then book the exam while it still feels recent. Don't wait for the perfect study streak.
+
+And when you get your score, tell someone. Seriously. That's half the fun.
