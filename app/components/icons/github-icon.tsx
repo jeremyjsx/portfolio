@@ -1,6 +1,6 @@
 import type { IconProps } from "@/app/components/icons/types";
 
-/** GitHub mark — uses currentColor for dark-theme social grid */
+/** GitHub mark - uses currentColor for dark-theme social grid */
 export function GitHubIcon({ className }: IconProps) {
   return (
     <svg

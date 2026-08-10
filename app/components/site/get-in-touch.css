@@ -1,0 +1,141 @@
+.get-in-touch-column {
+  padding-bottom: 2rem;
+}
+
+.get-in-touch {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.get-in-touch__copy {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.get-in-touch__title {
+  font-family: var(--font-exposure);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  color: var(--foreground);
+}
+
+.get-in-touch__body {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+}
+
+.social-grid {
+  display: grid;
+  flex: 1 1 0;
+  width: 100%;
+  min-width: 0;
+  grid-template-columns: repeat(3, minmax(50px, 1fr));
+  gap: 0.625rem;
+}
+
+.social-grid__item {
+  aspect-ratio: 1;
+  min-height: 6.5rem;
+}
+
+.social-grid__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 1.25rem;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.social-grid__link:hover {
+  background: var(--surface-hover);
+}
+
+.social-grid__icon-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--social-icon-display);
+  height: var(--social-icon-display);
+  overflow: visible;
+}
+
+.social-grid__icon-slot:empty::before {
+  content: "";
+  width: var(--social-icon-display);
+  height: var(--social-icon-display);
+  border-radius: 4px;
+  background: var(--muted);
+  opacity: 0.25;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--social-icon-display);
+  height: var(--social-icon-display);
+  overflow: visible;
+  color: var(--muted);
+  opacity: 0.55;
+  transition:
+    opacity 0.2s,
+    color 0.2s;
+}
+
+.social-grid__link:hover .social-icon {
+  color: var(--foreground);
+  opacity: 0.9;
+}
+
+.social-icon__svg {
+  display: block;
+  width: var(--social-icon-display);
+  height: var(--social-icon-display);
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .get-in-touch {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .social-grid__item {
+    min-height: 6.5rem;
+  }
+}
+
+@media (max-width: 639.98px) {
+  .get-in-touch {
+    gap: 2rem;
+  }
+
+  .get-in-touch__body {
+    font-size: 0.8125rem;
+  }
+
+  .social-grid__item {
+    min-height: 13.75rem;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1199.98px) {
+  .get-in-touch__body {
+    font-size: 0.7rem;
+  }
+}

@@ -1,4 +1,5 @@
-import { HeroBadges } from "@/app/components/hero-badges";
+import "./cta.css";
+import { HeroBadges } from "@/app/components/hero/badges";
 import { site } from "@/lib/site/site";
 
 export function HeroCta() {
@@ -6,9 +7,7 @@ export function HeroCta() {
     <div className="hero-cta">
       <div className="hero-cta__actions">
         <a
-          href={site.links.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={site.links.email}
           className="btn-primary"
         >
           Let&apos;s chat

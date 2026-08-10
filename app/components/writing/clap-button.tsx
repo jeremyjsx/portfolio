@@ -1,4 +1,5 @@
 "use client";
+import "./clap-button.css";
 
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { CLAP_MAX_PER_VISITOR } from "@/lib/writing/claps-constants";

@@ -1,19 +1,24 @@
-import { HeroCta } from "@/app/components/hero-cta";
-import { ExperienceTimeline } from "@/app/components/experience-timeline";
-import { PageColumn } from "@/app/components/page-column";
-import { ProjectCard } from "@/app/components/project-card";
-import { SectionHeading } from "@/app/components/section-heading";
-import { WritingEntry } from "@/app/components/writing-entry";
+import { AgentKnowMe } from "@/app/components/agent-know-me";
+import { HeroCta } from "@/app/components/hero/cta";
+import { ExperienceTimeline } from "@/app/components/experience/timeline";
+import { PageColumn } from "@/app/components/ui/page-column";
+import { ProjectCard } from "@/app/components/projects/project-card";
+import { SectionHeading } from "@/app/components/ui/section-heading";
+import { WritingEntry } from "@/app/components/writing/entry";
 import { homeProjects } from "@/lib/projects/projects";
+import { getAgentBriefMarkdown } from "@/lib/site/agent-brief";
 import { site, stats } from "@/lib/site/site";
 import { getWritingEntries, writingHomePreviewCount } from "@/lib/writing/posts";
 
 export default function Home() {
   const writingEntries = getWritingEntries();
+  const brief = getAgentBriefMarkdown();
   return (
     <>
       <PageColumn variant="hero">
-        <h1 className="type-h1 m-0">Hello, I&apos;m {site.name}.</h1>
+        <h1 className="type-h1 m-0">
+          Hello, I&apos;m <AgentKnowMe brief={brief} name={site.name} />.
+        </h1>
         <p className="type-role mt-6 mb-0">
           I&apos;m a <span className="brand-role">{site.role}</span>{" "}
           working in

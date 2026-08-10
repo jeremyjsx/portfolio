@@ -1,0 +1,136 @@
+.clap-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 4rem;
+  user-select: none;
+}
+
+.clap-button__stage {
+  position: relative;
+}
+
+.clap-button__control {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0;
+  padding: 0;
+  border: 2px solid #3f3f3f;
+  border-radius: 9999px;
+  background: transparent;
+  color: #6b6b6b;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.12s ease;
+  touch-action: manipulation;
+}
+
+.clap-button__control:hover:not(:disabled) {
+  color: #9ba1a5;
+  border-color: #6b6b6b;
+}
+
+.clap-button__control:disabled {
+  cursor: default;
+  opacity: 0.75;
+}
+
+.clap-button__control--active {
+  color: var(--foreground);
+  border-color: var(--foreground);
+}
+
+.clap-button__control--active:hover:not(:disabled) {
+  color: #9ba1a5;
+  border-color: #6b6b6b;
+}
+
+.clap-button__control--pressed {
+  transform: scale(0.88);
+}
+
+.clap-button__icon {
+  display: block;
+}
+
+.clap-button__burst {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.clap-button__particle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.25rem;
+  height: 0.25rem;
+  margin: -0.125rem 0 0 -0.125rem;
+  border-radius: 9999px;
+  background: #9ba1a5;
+  animation: clap-particle 0.5s ease-out forwards;
+  transform: rotate(var(--clap-angle)) translateY(0) scale(1);
+}
+
+.clap-button__plus {
+  position: absolute;
+  top: -0.35rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #9ba1a5;
+  pointer-events: none;
+  animation: clap-plus 0.7s ease-out forwards;
+}
+
+.clap-button__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1;
+  color: #6b6b6b;
+}
+
+.clap-button__count {
+  font-variant-numeric: tabular-nums;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.clap-button__hint {
+  margin: 0;
+  min-height: 1rem;
+  font-size: 0.75rem;
+  line-height: 1;
+  color: #9ba1a5;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.clap-button__hint--visible {
+  opacity: 1;
+}
+
+@keyframes clap-particle {
+  to {
+    opacity: 0;
+    transform: rotate(var(--clap-angle)) translateY(-1.75rem) scale(0);
+  }
+}
+
+@keyframes clap-plus {
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-1.5rem);
+  }
+}

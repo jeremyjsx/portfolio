@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageColumn } from "@/app/components/page-column";
-import { WritingEntry } from "@/app/components/writing-entry";
+import { ArrowIcon } from "@/app/components/icons/arrow-icon";
+import { PageColumn } from "@/app/components/ui/page-column";
+import { WritingEntry } from "@/app/components/writing/entry";
 import { site } from "@/lib/site/site";
 import { getWritingEntries } from "@/lib/writing/posts";
 
 export const metadata: Metadata = {
-  title: `Writing — ${site.fullName}`,
+  title: `Writing - ${site.fullName}`,
   description:
     "Notes on shipping backend systems, certifications, APIs, and the operational side of building with Claude.",
 };
@@ -19,12 +20,13 @@ export default function WritingPage() {
       <PageColumn variant="hero" className="page-column-hero--subpage">
         <h1 className="type-h1 m-0">Writing</h1>
         <p className="type-body mt-6 mb-0 max-w-[390px]">
-          Longer notes on backend craft — APIs, data, and the operational side of
+          Longer notes on backend craft - APIs, data, and the operational side of
           shipping services.
         </p>
         <p className="type-body-sm mt-4 mb-0">
           <Link href="/" className="link-arrow text-muted">
-            ← Back to home
+            <ArrowIcon direction="left" />
+            Back to home
           </Link>
         </p>
       </PageColumn>

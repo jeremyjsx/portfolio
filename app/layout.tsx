@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
-import { SiteShell } from "@/app/components/site-shell";
+import { SiteShell } from "@/app/components/site/shell";
 import "./globals.css";
 
 const inter = Inter({
@@ -28,7 +28,7 @@ const exposureItalic = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jeremyportfolio.vercel.app"),
-  title: "Jeremy — Backend Engineer",
+  title: "Jeremy - Backend Engineer",
   description:
     "Backend engineer building APIs and services with TypeScript, Python, and Go. Based in Ecuador.",
   icons: {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     apple: [{ url: "/logo.png", type: "image/png" }],
   },
   openGraph: {
-    title: "Jeremy — Backend Engineer",
+    title: "Jeremy - Backend Engineer",
     description:
       "APIs, event-driven backends, and cloud tooling. orderly, entries, signal, Wallbit Workflows.",
     type: "website",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jeremy — Backend Engineer",
+    title: "Jeremy - Backend Engineer",
     description:
       "APIs, event-driven backends, and cloud tooling. orderly, entries, signal, Wallbit Workflows.",
   },

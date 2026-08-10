@@ -1,3 +1,4 @@
+import "./markdown.css";
 import { cacheLife } from "next/cache";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeStringify from "rehype-stringify";

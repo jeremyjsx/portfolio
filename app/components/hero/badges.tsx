@@ -1,3 +1,4 @@
+import "./badges.css";
 import Image from "next/image";
 import { site } from "@/lib/site/site";
 

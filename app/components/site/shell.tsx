@@ -1,8 +1,8 @@
 import { Suspense } from "react";
-import { ScrollToTop } from "@/app/components/scroll-to-top";
-import { SiteFooter } from "@/app/components/site-footer";
-import { SiteGetInTouch } from "@/app/components/site-get-in-touch";
-import { SiteNavbar } from "@/app/components/site-navbar";
+import { ScrollToTop } from "@/app/components/ui/scroll-to-top";
+import { SiteFooter } from "@/app/components/site/footer";
+import { SiteGetInTouch } from "@/app/components/site/get-in-touch";
+import { SiteNavbar } from "@/app/components/site/navbar";
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
   return (

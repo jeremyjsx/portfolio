@@ -1,5 +1,6 @@
+import "./get-in-touch.css";
 import { SocialIcon } from "@/app/components/icons/social-icon";
-import { PageColumn } from "@/app/components/page-column";
+import { PageColumn } from "@/app/components/ui/page-column";
 import { site, socialLinks } from "@/lib/site/site";
 
 export function SiteGetInTouch() {

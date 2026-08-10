@@ -1,6 +1,6 @@
 import type { IconProps } from "@/app/components/icons/types";
 
-/** LinkedIn mark — uses currentColor for dark-theme social grid */
+/** LinkedIn mark - uses currentColor for dark-theme social grid */
 export function LinkedInIcon({ className }: IconProps) {
   return (
     <svg

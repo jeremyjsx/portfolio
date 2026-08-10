@@ -1,0 +1,16 @@
+/* About page */
+.about-section.page-column-block-tight {
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+.about-section-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 40rem;
+}
+
+.about-section-copy .type-body {
+  color: var(--muted-light);
+}

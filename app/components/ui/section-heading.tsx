@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { ArrowIcon } from "@/app/components/icons/arrow-icon";
 
 export function SectionHeading({
   title,
@@ -17,7 +18,8 @@ export function SectionHeading({
           rel={action.external === false ? undefined : "noopener noreferrer"}
           className="link-arrow shrink-0"
         >
-          {action.label} →
+          {action.label}
+          <ArrowIcon />
         </a>
       ) : null}
     </div>

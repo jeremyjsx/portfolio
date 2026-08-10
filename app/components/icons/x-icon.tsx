@@ -1,6 +1,6 @@
 import type { IconProps } from "@/app/components/icons/types";
 
-/** X (Twitter) mark — uses currentColor for dark-theme social grid */
+/** X (Twitter) mark - uses currentColor for dark-theme social grid */
 export function XIcon({ className }: IconProps) {
   return (
     <svg

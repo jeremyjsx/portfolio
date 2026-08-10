@@ -1,3 +1,4 @@
+import "./focus-marquee.css";
 const SEPARATOR = "·";
 
 function MarqueeCells({

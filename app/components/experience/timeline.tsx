@@ -1,8 +1,9 @@
 "use client";
+import "./timeline.css";
 
 import Image from "next/image";
 import { useState } from "react";
-import { ExperienceTechChip } from "@/app/components/experience-tech-chip";
+import { ExperienceTechChip } from "@/app/components/experience/tech-chip";
 import type { ExperienceEntry } from "@/lib/experience/experience";
 import { experienceEntries } from "@/lib/experience/experience";
 
@@ -61,7 +62,7 @@ function ExperienceContent({ entry }: { entry: ExperienceEntry }) {
         <div className="experience-timeline__details-inner">
           <div className="experience-timeline__details-panel">
             <h4>Activities</h4>
-            <ul>
+            <ul className="experience-timeline__activities">
               {entry.activities.map((activity) => (
                 <li key={activity}>{activity}</li>
               ))}

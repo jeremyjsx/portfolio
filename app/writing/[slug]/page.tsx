@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import { ClapButton } from "@/app/components/clap-button";
-import { PageColumn } from "@/app/components/page-column";
-import { WritingMarkdown } from "@/app/components/writing-markdown";
-import { WritingViewTracker } from "@/app/components/writing-view-tracker";
+import { ClapButton } from "@/app/components/writing/clap-button";
+import { ArrowIcon } from "@/app/components/icons/arrow-icon";
+import { PageColumn } from "@/app/components/ui/page-column";
+import { WritingMarkdown } from "@/app/components/writing/markdown";
+import { WritingViewTracker } from "@/app/components/writing/view-tracker";
 import {
   formatPostDate,
   formatReadingTime,
@@ -29,11 +30,11 @@ export async function generateMetadata({
   const post = getPublishedWritingPost(slug);
 
   if (!post) {
-    return { title: `Writing — ${site.fullName}` };
+    return { title: `Writing - ${site.fullName}` };
   }
 
   return {
-    title: `${post.title} — ${site.fullName}`,
+    title: `${post.title} - ${site.fullName}`,
     description: post.excerpt || post.title,
   };
 }
@@ -116,7 +117,8 @@ async function WritingPostContent({
         <h1 className="type-h1 mb-0 max-w-[640px]">{post.title}</h1>
         <p className="type-body-sm mt-6 mb-0">
           <Link href="/writing" className="link-arrow text-muted">
-            ← Back to writing
+            <ArrowIcon direction="left" />
+            Back to writing
           </Link>
         </p>
       </PageColumn>

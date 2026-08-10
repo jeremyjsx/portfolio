@@ -3,8 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import { PageColumn } from "@/app/components/page-column";
-import { WritingMarkdown } from "@/app/components/writing-markdown";
+import { ArrowIcon } from "@/app/components/icons/arrow-icon";
+import { PageColumn } from "@/app/components/ui/page-column";
+import { ProjectCaseActions } from "@/app/components/projects/project-case-actions";
+import { ProjectCaseBody } from "@/app/components/projects/project-case-body";
 import { getProjectCaseStudy } from "@/lib/projects/cases";
 import { getProjectBySlug, projects } from "@/lib/projects/projects";
 import { site } from "@/lib/site/site";
@@ -25,22 +27,72 @@ export async function generateMetadata({
   const project = getProjectBySlug(slug);
 
   if (!project) {
-    return { title: `Projects — ${site.fullName}` };
+    return { title: `Projects - ${site.fullName}` };
   }
 
   return {
-    title: `${project.name} — ${site.fullName}`,
+    title: `${project.name} - ${site.fullName}`,
     description: project.description,
   };
 }
 
+function CaseStudyProseSkeleton() {
+  return (
+    <div className="project-case__prose-skeleton" aria-hidden>
+      <div className="mb-3 h-[1.8rem] w-32 rounded bg-surface" />
+      <div className="flex flex-col gap-2">
+        <div className="h-[1.22rem] w-full max-w-[640px] rounded bg-surface" />
+        <div className="h-[1.22rem] w-full max-w-[600px] rounded bg-surface" />
+        <div className="h-[1.22rem] w-full max-w-[560px] rounded bg-surface" />
+        <div className="h-[1.22rem] w-full max-w-[480px] rounded bg-surface" />
+      </div>
+      <div className="mt-8 mb-3 h-[1.8rem] w-40 rounded bg-surface" />
+      <div className="flex flex-col gap-2">
+        <div className="h-[1.22rem] w-full max-w-[640px] rounded bg-surface" />
+        <div className="h-[1.22rem] w-full max-w-[580px] rounded bg-surface" />
+        <div className="h-[1.22rem] w-full max-w-[520px] rounded bg-surface" />
+      </div>
+      <div className="mt-8 mb-3 h-[1.8rem] w-36 rounded bg-surface" />
+      <div className="flex flex-col gap-2">
+        <div className="h-[1.22rem] w-full max-w-[640px] rounded bg-surface" />
+        <div className="h-[1.22rem] w-full max-w-[590px] rounded bg-surface" />
+        <div className="h-[1.22rem] w-full max-w-[540px] rounded bg-surface" />
+        <div className="h-[1.22rem] w-full max-w-[460px] rounded bg-surface" />
+      </div>
+    </div>
+  );
+}
+
 function CaseStudyFallback() {
   return (
-    <PageColumn variant="hero" className="page-column-hero--subpage">
-      <div className="h-4 w-40 rounded bg-surface" aria-hidden />
-      <div className="mt-6 h-10 max-w-[640px] rounded bg-surface" aria-hidden />
-      <div className="mt-6 h-16 max-w-[480px] rounded bg-surface" aria-hidden />
-    </PageColumn>
+    <>
+      <PageColumn variant="hero" className="page-column-hero--subpage">
+        <div className="mb-4 h-[1.1rem] w-48 rounded bg-surface" aria-hidden />
+        <div className="flex items-start justify-between gap-4">
+          <div
+            className="h-[clamp(1.76rem,4vw,2.5rem)] max-w-[640px] w-[min(15rem,52%)] rounded bg-surface"
+            aria-hidden
+          />
+          <div className="flex shrink-0 gap-2" aria-hidden>
+            <div className="project-case__action-skel rounded-md bg-surface" />
+            <div className="project-case__action-skel rounded-md bg-surface" />
+          </div>
+        </div>
+        <div className="mt-6 flex flex-wrap gap-2" aria-hidden>
+          <div className="h-7 w-16 rounded-full bg-surface" />
+          <div className="h-7 w-[5.25rem] rounded-full bg-surface" />
+        </div>
+        <div className="mt-6 h-[1.3rem] w-32 rounded bg-surface" aria-hidden />
+      </PageColumn>
+
+      <PageColumn variant="section" ruleTop>
+        <div
+          className="project-case__banner project-case__banner--skeleton"
+          aria-hidden
+        />
+        <CaseStudyProseSkeleton />
+      </PageColumn>
+    </>
   );
 }
 
@@ -66,8 +118,15 @@ async function ProjectCaseContent({
           </span>
           {project.category}
         </p>
-        <h1 className="type-h1 m-0 max-w-[640px]">{project.name}</h1>
-        <p className="type-body mt-6 mb-0 max-w-[480px]">{project.description}</p>
+
+        <div className="project-case__title-row">
+          <h1 className="type-h1 m-0 min-w-0 max-w-[640px]">{project.name}</h1>
+          <ProjectCaseActions
+            projectName={project.name}
+            githubHref={project.href}
+            sites={project.sites}
+          />
+        </div>
 
         <ul className="project-case__stack m-0 mt-6 flex list-none flex-wrap gap-2 p-0">
           {project.stack.map((item) => (
@@ -77,25 +136,16 @@ async function ProjectCaseContent({
           ))}
         </ul>
 
-        <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2">
-          <p className="type-body-sm m-0">
-            <Link href="/projects" className="link-arrow text-muted">
-              ← Back to projects
-            </Link>
-          </p>
-          <a
-            href={project.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link-arrow"
-          >
-            View on GitHub →
-          </a>
-        </div>
+        <p className="type-body-sm m-0 mt-6">
+          <Link href="/projects" className="link-arrow text-muted">
+            <ArrowIcon direction="left" />
+            Back to projects
+          </Link>
+        </p>
       </PageColumn>
 
-      {project.banner ? (
-        <PageColumn variant="section-tight" ruleTop>
+      <PageColumn variant="section" ruleTop>
+        {project.banner ? (
           <div className="project-case__banner">
             <Image
               src={project.banner}
@@ -107,16 +157,17 @@ async function ProjectCaseContent({
               loading="eager"
             />
           </div>
-        </PageColumn>
-      ) : null}
-
-      <PageColumn variant="section" ruleTop={!project.banner}>
-        <Suspense
-          fallback={
-            <div className="h-40 animate-pulse rounded bg-surface" aria-hidden />
-          }
-        >
-          <WritingMarkdown content={caseStudy} />
+        ) : null}
+        <Suspense fallback={<CaseStudyProseSkeleton />}>
+          <div
+            className={
+              project.banner
+                ? "project-case__body project-case__body--after-banner"
+                : "project-case__body"
+            }
+          >
+            <ProjectCaseBody content={caseStudy} />
+          </div>
         </Suspense>
       </PageColumn>
     </>
