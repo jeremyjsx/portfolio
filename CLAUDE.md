@@ -29,6 +29,7 @@ No test suite is configured.
 All site content lives in-repo — no CMS. Domains are folders; imports are explicit (no barrel `index.ts`):
 
 - `lib/site/site.ts` — personal info, nav, social links, stats, footer focus areas
+- `lib/site/agent-brief.ts` — markdown brief for recruiters' agents (`/llms.txt`, copy/download)
 - `lib/projects/projects.ts` — project catalog (`slug`, cards, `homeProjects`)
 - `content/projects/*.md` — case study bodies; `lib/projects/cases.ts` loads them
 - `lib/experience/experience.ts` — employment history (e.g. TRD)
@@ -54,9 +55,9 @@ Writing callouts (GitHub-style blockquotes), colored like Railly's notes:
 
 ### Layout primitives
 
-`SiteShell` (`app/components/site-shell.tsx`): `.page-rail-guides` + fixed `SiteNavbar` + full-width `page-main` + `SiteFooter`. `.section-rule` is `width: 100%` of `page-main` (no `100vw`, avoids horizontal scroll). Mounted once in `app/layout.tsx`.
+`SiteShell` (`app/components/site/shell.tsx`): `.page-rail-guides` + fixed `SiteNavbar` + full-width `page-main` + `SiteFooter`. `.section-rule` is `width: 100%` of `page-main` (no `100vw`, avoids horizontal scroll). Mounted once in `app/layout.tsx`.
 
-`PageColumn` (`app/components/page-column.tsx`) centers content at `--content-max: 728px` with horizontal padding. Variants: `hero`, `section`, `section-tight`. Pass `ruleTop` for a full-width dashed rule above the block (rendered inside full-width `main`).
+`PageColumn` (`app/components/ui/page-column.tsx`) centers content at `--content-max: 728px` with horizontal padding. Variants: `hero`, `section`, `section-tight`. Pass `ruleTop` for a full-width dashed rule above the block (rendered inside full-width `main`).
 
 ### Design system
 
@@ -70,7 +71,7 @@ The design system lives entirely in `app/globals.css`:
 ### Pages
 
 - `/` — `app/page.tsx`: single-page scroll (hero, at-a-glance, experience, projects, writing).
-- `/about` — `app/about/page.tsx`: hero, API flow diagram, sections from `lib/about/about.ts`.
-- `/projects` — project grid; `/projects/[slug]` — case study from `content/projects/` (`/work` redirects here)
+- `/about` — `app/about/page.tsx`: hero and sections from `lib/about/about.ts`.
+- `/projects` — project grid; `/projects/[slug]` — case study from `content/projects/`
 - `/writing` — `app/writing/page.tsx`: published posts from `content/writing/`
 - `/writing/[slug]` — `app/writing/[slug]/page.tsx`: single post markdown body
