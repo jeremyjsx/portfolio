@@ -1,10 +1,10 @@
 # Portfolio
 
-Personal site for [Jeremy Mosquera](https://jeremyportfolio.vercel.app) — backend engineer focused on APIs, cloud, and developer tooling.
+Personal site for [Jeremy Mosquera](https://0xjeremy.vercel.app) — backend engineer focused on APIs, cloud, and developer tooling.
 
 ![Open Graph](./app/opengraph-image.png)
 
-**Live:** [jeremyportfolio.vercel.app](https://jeremyportfolio.vercel.app)
+**Live:** [0xjeremy.vercel.app](https://0xjeremy.vercel.app)
 
 ## Run locally
 

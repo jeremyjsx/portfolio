@@ -27,7 +27,7 @@ const exposureItalic = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jeremyportfolio.vercel.app"),
+  metadataBase: new URL("https://0xjeremy.vercel.app"),
   title: "Jeremy - Backend Engineer",
   description:
     "Backend engineer building APIs and services with TypeScript, Python, and Go. Based in Ecuador.",
@@ -42,15 +42,15 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Jeremy - Backend Engineer",
     description:
-      "APIs, event-driven backends, and cloud tooling. orderly, entries, signal, Wallbit Workflows.",
+      "Backend engineer building APIs and services with TypeScript, Python, and Go. Based in Ecuador.",
     type: "website",
-    url: "https://jeremyportfolio.vercel.app",
+    url: "https://0xjeremy.vercel.app",
   },
   twitter: {
     card: "summary_large_image",
     title: "Jeremy - Backend Engineer",
     description:
-      "APIs, event-driven backends, and cloud tooling. orderly, entries, signal, Wallbit Workflows.",
+      "Backend engineer building APIs and services with TypeScript, Python, and Go. Based in Ecuador.",
   },
 };
 

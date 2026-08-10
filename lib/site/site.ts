@@ -32,7 +32,7 @@ export const site = {
     github: "https://github.com/jeremyjsx",
     linkedin: "https://www.linkedin.com/in/jeremydev/",
     twitter: "https://x.com/jeremyjsx",
-    portfolio: "https://jeremyportfolio.vercel.app",
+    portfolio: "https://0xjeremy.vercel.app",
     email: "mailto:jeremy.mosquera@outlook.com",
   },
   getInTouch: {
