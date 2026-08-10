@@ -33,6 +33,7 @@ export const site = {
     linkedin: "https://www.linkedin.com/in/jeremydev/",
     twitter: "https://x.com/jeremyjsx",
     portfolio: "https://jeremyportfolio.vercel.app",
+    email: "mailto:jeremy.mosquera@outlook.com",
   },
   getInTouch: {
     title: "Get in touch",
@@ -59,6 +60,7 @@ export const site = {
 export const contactLinks = [
   { label: "LinkedIn", href: site.links.linkedin },
   { label: "GitHub", href: site.links.github },
+  { label: "Email", href: site.links.email },
   { label: "CV", href: encodeURI(site.cvPath) },
 ] as const;
 
@@ -92,5 +94,5 @@ export const stats = [
     suffix: "M+",
     label: "Annual transaction volume",
   },
-  { value: "OS", suffix: "", label: "Contributor" },
+  { value: "OSS", suffix: "", label: "Contributor" },
 ] as const;
