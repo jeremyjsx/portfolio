@@ -1,5 +1,5 @@
 ---
-title: Idempotency saved my API
+title: How idempotency saved my payment API
 date: 2026-03-12
 status: published
 excerpt: Frontend retries were coming. Without idempotency keys, a payment API would have charged people twice.
