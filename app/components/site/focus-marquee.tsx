@@ -12,14 +12,14 @@ function MarqueeCells({
     cell === SEPARATOR ? (
       <span
         key={`${keyPrefix}-sep-${i}`}
-        className="focus-marquee__dot font-display text-2xl text-muted/40 sm:text-3xl"
+        className="focus-marquee__dot font-display text-xl text-muted/40 sm:text-3xl"
       >
         ·
       </span>
     ) : (
       <span
         key={`${keyPrefix}-${cell}-${i}`}
-        className="focus-marquee__label font-display text-2xl tracking-tight text-foreground/80 sm:text-3xl md:text-4xl"
+        className="focus-marquee__label font-display text-xl tracking-tight text-foreground/80 sm:text-3xl md:text-4xl"
       >
         {cell}
       </span>

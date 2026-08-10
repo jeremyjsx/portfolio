@@ -76,14 +76,13 @@ export function AgentKnowMe({ brief, name }: AgentKnowMeProps) {
             <span className="agent-know-me__star agent-know-me__star--c" />
           </span>
         </button>
-
-        <span className="agent-know-me__alert" id="agent-know-me-alert" role="status">
-          {copied
-            ? "Brief copied, paste it into your agent."
-            : "In a hurry? Let your agent know me."}
-          <span className="agent-know-me__alert-meta">
-            {copied ? "Ready to paste" : "Click to copy brief"}
-          </span>
+      </span>
+      <span className="agent-know-me__alert" id="agent-know-me-alert" role="status">
+        {copied
+          ? "Brief copied, paste it into your agent."
+          : "In a hurry? Let your agent know me."}
+        <span className="agent-know-me__alert-meta">
+          {copied ? "Ready to paste" : "Click to copy brief"}
         </span>
       </span>
     </span>
