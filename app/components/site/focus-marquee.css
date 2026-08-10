@@ -25,12 +25,22 @@
       transparent 100%);
 }
 
+@keyframes focus-marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 .focus-marquee__track {
   display: flex;
   flex-wrap: nowrap;
   width: max-content;
   align-items: center;
-  animation: marquee 28s linear infinite;
+  animation: focus-marquee 28s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
