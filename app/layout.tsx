@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 import { SiteShell } from "@/app/components/site/shell";
 import "./globals.css";
 
@@ -76,6 +77,7 @@ export default function RootLayout({
         }}
       >
         <SiteShell>{children}</SiteShell>
+        <Analytics />
       </body>
     </html>
   );
