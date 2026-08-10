@@ -1,0 +1,17 @@
+/* Case-study section titles sit under a wide banner; give them more weight
+   than default writing-prose h2 without touching blog post sizing. */
+.project-case__body .writing-prose h2 {
+  font-size: 1.5rem;
+}
+
+.project-case__body .writing-prose h3 {
+  font-size: 1.15rem;
+}
+
+.project-case__prose-skeleton {
+  max-width: 640px;
+}
+
+.project-case__banner+.project-case__prose-skeleton {
+  margin-top: 1.25rem;
+}

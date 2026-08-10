@@ -1,0 +1,204 @@
+.signal-pipeline {
+  margin: 0;
+  padding: 1rem 1rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+}
+
+.signal-pipeline__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.signal-pipeline__eyebrow {
+  margin: 0;
+  color: var(--muted-light);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.signal-pipeline__toggle {
+  display: inline-flex;
+  padding: 0.2rem;
+  border: 1px solid var(--border);
+  border-radius: 0.45rem;
+  background: var(--background);
+}
+
+.signal-pipeline__toggle-btn {
+  appearance: none;
+  margin: 0;
+  padding: 0.4rem 0.7rem;
+  border: 0;
+  border-radius: 0.3rem;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.signal-pipeline__toggle-btn.is-active {
+  background: var(--surface-hover);
+  color: var(--foreground);
+}
+
+.signal-pipeline__toggle-btn:hover {
+  color: var(--foreground);
+}
+
+.signal-pipeline__stages {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0.75rem;
+  border: 1px dashed var(--border);
+  border-radius: 0.45rem;
+  background: color-mix(in srgb, var(--foreground) 2%, transparent);
+}
+
+.signal-pipeline__stage {
+  appearance: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0.5rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  background: var(--background);
+  color: var(--muted);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.signal-pipeline__stage:hover {
+  color: var(--foreground);
+}
+
+.signal-pipeline__stage.is-done {
+  border-color: color-mix(in srgb, var(--foreground) 18%, var(--border));
+}
+
+.signal-pipeline__stage.is-current {
+  color: var(--foreground);
+  border-color: color-mix(in srgb, var(--foreground) 40%, var(--border));
+  background: var(--surface-hover);
+}
+
+.signal-pipeline__stage-label {
+  font-size: 0.78rem;
+  line-height: 1.25;
+}
+
+.signal-pipeline__stage-where {
+  color: var(--muted-light);
+  font-size: 0.65rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.signal-pipeline__stage.is-current .signal-pipeline__stage-where {
+  color: inherit;
+  opacity: 0.75;
+}
+
+.signal-pipeline__panel {
+  margin-top: 0.9rem;
+}
+
+.signal-pipeline__meta {
+  margin: 0;
+  color: var(--muted-light);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.signal-pipeline__title {
+  margin: 0.35rem 0 0;
+  color: var(--foreground);
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.signal-pipeline__detail {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.signal-pipeline__controls {
+  display: flex;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+}
+
+.signal-pipeline__control {
+  appearance: none;
+  margin: 0;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.signal-pipeline__control:hover:not(:disabled) {
+  color: var(--foreground);
+  border-color: color-mix(in srgb, var(--foreground) 28%, var(--border));
+  background: var(--surface-hover);
+}
+
+.signal-pipeline__control:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.signal-pipeline__caption {
+  margin: 0.85rem 0 0;
+  color: var(--muted-light);
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 560px) {
+  .signal-pipeline__stages {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .signal-pipeline__toggle {
+    width: 100%;
+  }
+
+  .signal-pipeline__toggle-btn {
+    flex: 1;
+    text-align: center;
+  }
+}

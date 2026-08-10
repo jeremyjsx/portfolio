@@ -1,0 +1,164 @@
+.orderly-retry-dlq {
+  margin: 0;
+  padding: 1rem 1rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+}
+
+.orderly-retry-dlq__header {
+  margin-bottom: 1rem;
+}
+
+.orderly-retry-dlq__eyebrow {
+  margin: 0;
+  color: var(--muted-light);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.orderly-retry-dlq__subtitle {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.orderly-retry-dlq__track {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0.75rem;
+  border: 1px dashed var(--border);
+  border-radius: 0.45rem;
+  background: color-mix(in srgb, var(--foreground) 2%, transparent);
+}
+
+.orderly-retry-dlq__node {
+  appearance: none;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  background: var(--background);
+  color: var(--muted);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.orderly-retry-dlq__node:hover {
+  color: var(--foreground);
+}
+
+.orderly-retry-dlq__node.is-done {
+  color: var(--muted);
+  border-color: color-mix(in srgb, var(--foreground) 18%, var(--border));
+}
+
+.orderly-retry-dlq__node.is-current {
+  color: var(--foreground);
+  border-color: color-mix(in srgb, var(--foreground) 40%, var(--border));
+  background: var(--surface-hover);
+}
+
+.orderly-retry-dlq__node--fail.is-current,
+.orderly-retry-dlq__node--dlq.is-current {
+  color: #e8b4a8;
+  border-color: color-mix(in srgb, #d88870 50%, var(--border));
+  background: color-mix(in srgb, #d88870 10%, var(--background));
+}
+
+.orderly-retry-dlq__node-label {
+  font-size: 0.72rem;
+  line-height: 1.25;
+}
+
+.orderly-retry-dlq__node-meta {
+  color: var(--muted-light);
+  font-size: 0.65rem;
+  line-height: 1;
+}
+
+.orderly-retry-dlq__node.is-current .orderly-retry-dlq__node-meta {
+  color: inherit;
+  opacity: 0.8;
+}
+
+.orderly-retry-dlq__panel {
+  margin-top: 0.9rem;
+}
+
+.orderly-retry-dlq__step-count {
+  margin: 0;
+  color: var(--muted-light);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.orderly-retry-dlq__step-title {
+  margin: 0.35rem 0 0;
+  color: var(--foreground);
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.orderly-retry-dlq__step-detail {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.orderly-retry-dlq__controls {
+  display: flex;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+}
+
+.orderly-retry-dlq__control {
+  appearance: none;
+  margin: 0;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.orderly-retry-dlq__control:hover:not(:disabled) {
+  color: var(--foreground);
+  border-color: color-mix(in srgb, var(--foreground) 28%, var(--border));
+  background: var(--surface-hover);
+}
+
+.orderly-retry-dlq__control:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.orderly-retry-dlq__caption {
+  margin: 0.85rem 0 0;
+  color: var(--muted-light);
+  font-size: 0.7rem;
+  line-height: 1.4;
+}

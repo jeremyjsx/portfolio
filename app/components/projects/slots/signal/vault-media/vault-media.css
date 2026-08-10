@@ -1,0 +1,23 @@
+.signal-vault-media {
+  margin: 0;
+}
+
+.signal-vault-media__frame {
+  overflow: hidden;
+  border-radius: 0.6rem;
+  background: var(--surface);
+  line-height: 0;
+}
+
+.signal-vault-media__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.signal-vault-media__caption {
+  margin: 0.75rem 0 0;
+  color: var(--muted-light);
+  font-size: 0.7rem;
+  line-height: 1.4;
+}

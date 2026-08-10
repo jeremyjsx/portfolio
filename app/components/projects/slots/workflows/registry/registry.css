@@ -1,0 +1,167 @@
+.workflows-registry {
+  margin: 0;
+  padding: 1rem 1rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+}
+
+.workflows-registry__header {
+  margin-bottom: 1rem;
+}
+
+.workflows-registry__eyebrow {
+  margin: 0;
+  color: var(--muted-light);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.workflows-registry__subtitle {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.workflows-registry__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr);
+  gap: 0.75rem;
+}
+
+.workflows-registry__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.workflows-registry__card {
+  appearance: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  width: 100%;
+  margin: 0;
+  padding: 0.65rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 0.45rem;
+  background: var(--background);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.workflows-registry__card:hover,
+.workflows-registry__card.is-active {
+  border-color: color-mix(in srgb, var(--foreground) 35%, var(--border));
+  background: var(--surface-hover);
+}
+
+.workflows-registry__card-title {
+  color: var(--foreground);
+  font-size: 0.78rem;
+}
+
+.workflows-registry__card-meta {
+  color: var(--muted-light);
+  font-size: 0.68rem;
+}
+
+.workflows-registry__card-desc {
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.workflows-registry__label {
+  margin: 0 0 0.4rem;
+  color: var(--muted-light);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.workflows-registry__yaml {
+  margin: 0 0 0.85rem;
+  padding: 0.7rem 0.75rem;
+  overflow-x: auto;
+  border: 1px dashed var(--border);
+  border-radius: 0.45rem;
+  background: var(--background);
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.workflows-registry__yaml code {
+  color: inherit;
+  font: inherit;
+}
+
+.workflows-registry__pull {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  background: var(--background);
+}
+
+.workflows-registry__pull code {
+  flex: 1;
+  min-width: 0;
+  color: var(--foreground);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.68rem;
+  line-height: 1.4;
+  word-break: break-all;
+}
+
+.workflows-registry__copy {
+  appearance: none;
+  margin: 0;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 0.35rem;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.workflows-registry__copy:hover {
+  color: var(--foreground);
+  border-color: color-mix(in srgb, var(--foreground) 28%, var(--border));
+  background: var(--surface-hover);
+}
+
+.workflows-registry__caption {
+  margin: 0.85rem 0 0;
+  color: var(--muted-light);
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 700px) {
+  .workflows-registry__layout {
+    grid-template-columns: 1fr;
+  }
+}

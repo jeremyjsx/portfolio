@@ -1,0 +1,23 @@
+.workflows-cli-loop {
+  margin: 0;
+}
+
+.workflows-cli-loop__frame {
+  overflow: hidden;
+  border-radius: 0.6rem;
+  background: var(--surface);
+  line-height: 0;
+}
+
+.workflows-cli-loop__video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.workflows-cli-loop__caption {
+  margin: 0.75rem 0 0;
+  color: var(--muted-light);
+  font-size: 0.7rem;
+  line-height: 1.4;
+}

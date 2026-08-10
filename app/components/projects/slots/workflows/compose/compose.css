@@ -1,0 +1,182 @@
+.workflows-compose {
+  margin: 0;
+  padding: 1rem 1rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+}
+
+.workflows-compose__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.workflows-compose__eyebrow {
+  margin: 0;
+  color: var(--muted-light);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.workflows-compose__subtitle {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.workflows-compose__presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.workflows-compose__preset {
+  appearance: none;
+  margin: 0;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 0.35rem;
+  background: var(--background);
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.workflows-compose__preset:hover {
+  color: var(--foreground);
+}
+
+.workflows-compose__preset.is-active {
+  color: var(--foreground);
+  border-color: color-mix(in srgb, var(--foreground) 35%, var(--border));
+  background: var(--surface-hover);
+}
+
+.workflows-compose__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+  gap: 0.75rem;
+}
+
+.workflows-compose__label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--muted-light);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.workflows-compose__code {
+  margin: 0;
+  padding: 0.7rem 0.75rem;
+  overflow: hidden;
+  border: 1px dashed var(--border);
+  border-radius: 0.45rem;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.workflows-compose__code code {
+  color: inherit;
+  font: inherit;
+}
+
+.workflows-compose__side {
+  min-width: 0;
+}
+
+.workflows-compose__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.workflows-compose__steps li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 0.35rem;
+  background: var(--background);
+}
+
+.workflows-compose__step-id {
+  color: var(--foreground);
+  font-size: 0.75rem;
+}
+
+.workflows-compose__step-run {
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.68rem;
+}
+
+.workflows-compose__empty {
+  margin: 0;
+  color: var(--muted-light);
+  font-size: 0.75rem;
+}
+
+.workflows-compose__result {
+  margin-top: 0.75rem;
+  padding: 0.65rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  background: var(--background);
+}
+
+.workflows-compose__result.is-ok {
+  border-color: color-mix(in srgb, #6ab0a0 45%, var(--border));
+}
+
+.workflows-compose__result.is-bad {
+  border-color: color-mix(in srgb, #d88870 45%, var(--border));
+}
+
+.workflows-compose__result-title {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 0.78rem;
+}
+
+.workflows-compose__errors {
+  margin: 0.45rem 0 0;
+  padding-left: 1rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.workflows-compose__caption {
+  margin: 0.85rem 0 0;
+  color: var(--muted-light);
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 700px) {
+  .workflows-compose__grid {
+    grid-template-columns: 1fr;
+  }
+}
