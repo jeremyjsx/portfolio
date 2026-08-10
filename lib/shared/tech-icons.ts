@@ -1,5 +1,7 @@
 const TECH_ICON_OVERRIDES: Record<string, string> = {
   AWS: "/images/aws-logo.png",
+  "React Native": "/images/tech/react.png",
+  RabbitMQ: "/images/tech/rabbit-mq.png",
 };
 
 /** Maps a technology label to `public/images/tech/{slug}.png` */
