@@ -1,14 +1,11 @@
 .hero-name {
+  --agent-accent: var(--brand-italic);
+  --agent-accent-soft: color-mix(in srgb, var(--brand-italic) 70%, white);
+  --agent-accent-deep: color-mix(in srgb, var(--brand-italic) 75%, black);
   position: relative;
   display: inline-block;
   white-space: nowrap;
   cursor: pointer;
-}
-
-.agent-know-me {
-  --agent-accent: var(--brand-italic);
-  --agent-accent-soft: color-mix(in srgb, var(--brand-italic) 70%, white);
-  --agent-accent-deep: color-mix(in srgb, var(--brand-italic) 75%, black);
 }
 
 .agent-know-me--hero {
@@ -90,11 +87,28 @@
 }
 
 .hero-name:hover .agent-know-me__alert,
-.agent-know-me--hero:focus-within .agent-know-me__alert,
+.hero-name:focus-within .agent-know-me__alert,
 .hero-name.is-copied .agent-know-me__alert {
   opacity: 1;
   visibility: visible;
   transform: translateY(-50%) translateX(0);
+}
+
+@media (max-width: 639.98px) {
+  .agent-know-me__alert {
+    top: calc(100% + 0.55rem);
+    left: 50%;
+    right: auto;
+    min-width: 12.5rem;
+    max-width: min(17rem, calc(100vw - 3.5rem));
+    transform: translate(-50%, -0.2rem);
+  }
+
+  .hero-name:hover .agent-know-me__alert,
+  .hero-name:focus-within .agent-know-me__alert,
+  .hero-name.is-copied .agent-know-me__alert {
+    transform: translate(-50%, 0);
+  }
 }
 
 .agent-know-me__alert-meta {
