@@ -11,8 +11,7 @@
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow: hidden;
   -webkit-mask-image: linear-gradient(to right,
       transparent 0%,
       #000 8%,
@@ -40,6 +39,7 @@
   flex-wrap: nowrap;
   width: max-content;
   align-items: center;
+  min-height: 2.5rem;
   animation: focus-marquee 28s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
@@ -66,6 +66,18 @@
   min-width: 1.25rem;
   line-height: 1.2;
   text-align: center;
+}
+
+@media (max-width: 639.98px) {
+  .focus-marquee {
+    margin-top: 0.25rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .focus-marquee__track {
+    min-height: 2rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
